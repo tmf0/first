@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="JavaScript.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var images = ['im1.jpg', 'im2.jpg', 'im3.jpg'];
+            var current = 0;
+            for (var i = 0; i <= images.length; i++) {
+                $('#img').attr('src', images[i]);
+                $('#img').fadeToggle('fast');
+                setInterval(function () {
+                    $('#img').attr('src', images[i]);
+                }, 500)
+            }
+           
+            $('#back').click(function () {
+                if (current != 0) 
+                    current--;
+                else current = images.length - 1;
+                $('#img').fadeToggle('fast');
+                setTimeout(function () {
+                    $('#img').attr('src', images[current]);
+                }, 500)
+                $('#img').fadeToggle('fast');
+            });
+            $('#forward').click(function () {
+                if (current != images.length -1)
+                    current++;
+                else current = 0;
+                $('#img').fadeToggle('fast');
+                setTimeout(function () {
+                    $('#img').attr('src', images[current]);
+                } ,500)
+                $('#img').fadeToggle('fast');
+            });
+        })
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+  
+</head>
+<body>
+    <div class="wrapper">
+        <img id="img" src="" />
+        <button id="back">Back</button>
+        <button id="forward">Forward</button>
+    </div>
+
+</body>
+</html>
